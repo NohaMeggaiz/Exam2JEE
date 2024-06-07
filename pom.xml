@@ -51,6 +51,33 @@
             <scope>test</scope>
         </dependency>
 
+
+            <!-- Spring Boot Starter Web -->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-web</artifactId>
+            </dependency>
+
+            <!-- Spring Boot Starter Security -->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-security</artifactId>
+            </dependency>
+
+            <!-- Spring Security OAuth2 Client -->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-oauth2-client</artifactId>
+            </dependency>
+
+            <!-- Spring Boot Starter Thymeleaf (optional, if you are using Thymeleaf) -->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-thymeleaf</artifactId>
+            </dependency>
+
+
+
     </dependencies>
 
     <build>
