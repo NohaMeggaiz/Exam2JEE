@@ -4,6 +4,7 @@ import org.demothymleaf.entity.Employee;
 import org.demothymleaf.services.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -32,15 +33,16 @@ public class EmployeeController {
         return employee.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
 
-    @GetMapping
-    public ResponseEntity<List<Employee>> getAllEmployees() {
+    @GetMapping("/employees")
+    public String getAllEmployees(Model model) {
         List<Employee> employees = employeeService.getAllEmployees();
-        return ResponseEntity.ok(employees);
+        model.addAttribute("employees", employees);
+        return "empployeeList"; //
     }
 
     @PutMapping("/{id}")
     public ResponseEntity<Employee> updateEmployee(@PathVariable Long id, @RequestBody Employee employee) {
-        employee.setId(id);  // Ensure the ID is set for the update
+        employee.setId(id);
         Employee updatedEmployee = employeeService.updateEmployee(employee);
         return ResponseEntity.ok(updatedEmployee);
     }
